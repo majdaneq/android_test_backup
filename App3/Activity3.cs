@@ -14,11 +14,15 @@ namespace App3
     [Activity(Label = "CurrentLocation")]
     public class Activity3 : Activity, ILocationListener
     {
+        Button b1;
+        Button b2;
         TextView txtlatitu;
         TextView txtlong;
         Location currentLocation;
         LocationManager locationManager;
         string locationProvider;
+
+
         public string TAG
         {
             get;
@@ -32,6 +36,20 @@ namespace App3
             txtlatitu = FindViewById<TextView>(Resource.Id.txtlatitude);
             txtlong = FindViewById<TextView>(Resource.Id.txtlong);
             InitializeLocationManager();
+            b1 = FindViewById<Button>(Resource.Id.button1);
+            b2 = FindViewById<Button>(Resource.Id.button2);
+
+            b1.Click += delegate
+              {
+                  Intent nextActivity2 = new Intent(this, typeof(Activity4));
+                  StartActivity(nextActivity2);
+              };
+
+            b2.Click += delegate
+              {
+                  Intent prevActivity2 = new Intent(this, typeof(Activity3));
+                  StartActivity(prevActivity2);
+              };
         }
 
         private void InitializeLocationManager()
