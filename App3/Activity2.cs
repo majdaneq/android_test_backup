@@ -9,15 +9,18 @@ using Android.OS;
 using Android.Util;
 using Android.Widget;
 using Android.Runtime;
+using Android.Content;
 
 namespace App3
 {
 
-
+    
 
     [Activity(Label = "Activity2")]
     public class Activity2 : Activity, ILocationListener
     {
+        Button b61;
+        
         static readonly string TAG = "X:" + typeof(Activity2).Name;
         TextView _addressText;
         Location _currentLocation;
@@ -31,8 +34,12 @@ namespace App3
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.layout2);
-
-
+            b61 = FindViewById<Button>(Resource.Id.buttonxxx);
+            b61.Click += delegate
+            {
+                Intent nextActivity2 = new Intent(this, typeof(Activity3));
+                StartActivity(nextActivity2);
+            };
             _addressText = FindViewById<TextView>(Resource.Id.address_text);
             _locationText = FindViewById<TextView>(Resource.Id.location_text);
             FindViewById<TextView>(Resource.Id.get_address_button).Click += AddressButton_OnClick;
