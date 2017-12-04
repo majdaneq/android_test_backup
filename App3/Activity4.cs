@@ -21,16 +21,28 @@ namespace App3
         int count = 1;
         ImageView image;
         Button b1;
+        Button b2;
+        Button b3;
+
         protected override void OnCreate(Bundle savedInstanceState)
-        {
-            
+        {            
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.layout4);
-
             b1 = FindViewById<Button>(Resource.Id.myButton);
+            b2 = FindViewById<Button>(Resource.Id.button1);
+            b3 = FindViewById<Button>(Resource.Id.button2);
             image = FindViewById<ImageView>(Resource.Id.imageView1);
-
             b1.Click += Camera_Click;
+            b2.Click += delegate
+            {
+                Intent prevAct = new Intent(this, typeof(Activity3));
+                StartActivity(prevAct);
+            };
+            b3.Click += delegate 
+            {
+                Intent nAct = new Intent(this, typeof(Activity5));
+                StartActivity(nAct);
+            };
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)

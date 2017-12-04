@@ -47,7 +47,7 @@ namespace App3
 
             b2.Click += delegate
               {
-                  Intent prevActivity2 = new Intent(this, typeof(Activity3));
+                  Intent prevActivity2 = new Intent(this, typeof(Activity2));
                   StartActivity(prevActivity2);
               };
         }
