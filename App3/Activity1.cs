@@ -15,7 +15,7 @@ namespace App3
 {
     [Activity(Label = "Activity1")]
     public class Activity1 : Activity
-    { //japierdole
+    { 
         Button b1;
         MediaRecorder recorder;
         MediaPlayer player;
